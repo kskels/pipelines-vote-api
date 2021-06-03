@@ -1,4 +1,4 @@
-FROM rhel8/go-toolset as builder
+FROM registry.redhat.io/rhel8/go-toolset as builder
 
 WORKDIR /build
 ADD . /build/

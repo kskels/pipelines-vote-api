@@ -1,16 +1,9 @@
-FROM library/golang as builder
-#FROM image-registry.openshift-image-registry.svc:5000/rhacs-pipelines/go-toolset as builder
+FROM library/golang
 
 WORKDIR /build
 ADD . /build/
 
-
-RUN mkdir /tmp/cache
-RUN CGO_ENABLED=0 GOCACHE=/tmp/cache go build  -mod=vendor -v -o /tmp/api-server .
-
-FROM scratch
-
-WORKDIR /app
-COPY --from=builder /tmp/api-server /app/api-server
+RUN mkdir /tmp/cache /app
+RUN CGO_ENABLED=0 GOCACHE=/tmp/cache go build  -mod=vendor -v -o /app/api-server .
 
 CMD [ "/app/api-server" ]

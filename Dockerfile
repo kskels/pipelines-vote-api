@@ -1,4 +1,4 @@
-FROM openshift/go-14-centos7 as builder
+FROM rhel8/go-toolset as builder
 
 WORKDIR /build
 ADD . /build/

@@ -1,4 +1,4 @@
-FROM registry.redhat.io/rhel8/go-toolset as builder
+FROM image-registry.openshift-image-registry.svc:5000/rhacs-pipelines/go-toolset as builder
 
 WORKDIR /build
 ADD . /build/

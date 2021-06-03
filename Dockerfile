@@ -1,4 +1,5 @@
-FROM image-registry.openshift-image-registry.svc:5000/rhacs-pipelines/go-toolset as builder
+FROM library/golang as builder
+#FROM image-registry.openshift-image-registry.svc:5000/rhacs-pipelines/go-toolset as builder
 
 WORKDIR /build
 ADD . /build/
